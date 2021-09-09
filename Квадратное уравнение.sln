@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Квадратное уравнение", "Квадратное уравнение\Квадратное уравнение.csproj", "{74169408-7DA1-4800-B1FF-02EC30AD8975}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74169408-7DA1-4800-B1FF-02EC30AD8975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74169408-7DA1-4800-B1FF-02EC30AD8975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74169408-7DA1-4800-B1FF-02EC30AD8975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74169408-7DA1-4800-B1FF-02EC30AD8975}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23D32AEA-92F5-4C38-850E-49E62057329D}
+	EndGlobalSection
+EndGlobal
