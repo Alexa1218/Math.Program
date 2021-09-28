@@ -1,67 +1,46 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 
-namespace Functions
+namespace Names1
 {
     class Program
     {
-        static void Main()
+        static void Main() 
         {
-            Console.Write("Введите X_min = ");
-            double X_min = double.Parse(Console.ReadLine());
-            Console.Write("Введите X_max = ");
-            double X_max = double.Parse(Console.ReadLine());
-            Console.Write("Введите N = ");
-            int N = int.Parse(Console.ReadLine());
-            var (X, Y) = FillArrays1(N, X_min, X_max);
-            // var (X, Y) = FillArrays2(N, X_min, X_max, out var X, out var Y); 
-            PrintAnswer(X, Y);
-        }
-        static (double[], double[]) FillArrays1(int N, double X_min, double X_max)
-        {
-            double[] X = new double[N];
-            double[] Y = new double[N];
-            double dx = (X_max - X_min) / (N + 1);
-            for (int i = 0; i < N; i++)
+            const string FileName = "names.txt";
+            StreamReader reader = new StreamReader(FileName);
+            Console.WriteLine("Длина = {0}", reader.BaseStream.Length); 
+            int i = 1;
+            Dictionary<string, int> Names = new Dictionary<string, int>();
+            while (!reader.EndOfStream)
             {
-                double x = i * dx + X_min;
-                X[i] = x;
-                Y[i] = F(x);
-            }
-            return (X, Y);
-        }
-        /* static void FillArrays2(int N, double X_min, double X_max, out double[] X, out double[]Y) 
-         { 
-             X = new double[N]; 
-             Y = new double[N]; 
-             double dx = (X_max - X_min) / (N + 1); 
-             for (int i = 0; i < N; i++) 
-             { 
-                 double x = i * dx + X_min; 
-                 X[i] = x; 
-                 Y[i] = F(x); 
-             } 
-         }*/
+                string line = reader.ReadLine();
+                string[] values = line.Split(' ');
+                if (values.Length < 2)
+                    continue;
 
-        static double F(double x)
-        {
-            if (x == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return Math.Sin(x) / x;
+                Console.WriteLine(line); //Вывод всего текста
+
+
+                string LastName = values[0];
+                string FirstName = values[1];
+                if (Names.ContainsKey(FirstName))
+                    Names[FirstName]++;
+                else
+                    Names.Add(FirstName, 1);
+
+                if (Names.ContainsKey(LastName))
+                    Names[LastName]++;
+                else
+                    Names.Add(LastName, 1);
 
             }
-        }
-
-        static void PrintAnswer(double[] X, double[] Y)
-        {
-            for (int i = 0; i < X.Length; i++)
-            {
-                Console.WriteLine("{0} : X = {1:f2} : Y = {2:f2}", i, X[i], Y[i]);
-            }
+            foreach (var name in Names)
+                Console.WriteLine("{0} - {1}", name.Key, name.Value);
+            foreach (var lastname in Names)
+                Console.WriteLine("{0} - {1}", lastname.Key, lastname.Value);
+            reader.Close();
         }
     }
 }
